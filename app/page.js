@@ -1,8 +1,11 @@
-import './globals.css'
 import Header from "./components/Header";
 import Head from "next/head";
+import Login from "./components/login";
+import Sidebar from "./components/Sidebar";
+//import { getSession } from "next-auth/client";
 
-export default function Home() {
+export default function Home({session}) {
+  if(!session) <Login />;
   return (
     <div>
       <Head>
@@ -12,11 +15,21 @@ export default function Home() {
       <Header />
       
       <main>
-        {/* Sidebar */}
+       
+        <Sidebar />
         {/* Feed */}
         {/* Widgets */}
       </main>
     </div>
   );
-}1
+}
 
+// export async function getServerSideProps(context) {
+//   const session = await getSession(context);
+
+//   return {
+//     props: {
+//       session
+//     },
+//   };
+// }
