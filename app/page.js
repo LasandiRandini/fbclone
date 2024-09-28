@@ -2,22 +2,23 @@ import Header from "./components/Header";
 import Head from "next/head";
 import Login from "./components/login";
 import Sidebar from "./components/Sidebar";
+import Feed from "./components/Feed";
 //import { getSession } from "next-auth/client";
 
 export default function Home({session}) {
   if(!session) <Login />;
   return (
-    <div>
+    <div className="h-screen bg-gray-100 overfolw-hidden">
       <Head>
         <title>Facebook</title>
       </Head>
 
       <Header />
       
-      <main>
+      <main className="flex">
        
         <Sidebar />
-        {/* Feed */}
+        <Feed/>
         {/* Widgets */}
       </main>
     </div>
